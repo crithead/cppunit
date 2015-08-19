@@ -1,23 +1,19 @@
-#ifndef TEST_PLAYER_H
-#define TEST_PLAYER_H
+#ifndef PLAYER_TEST_H
+#define PLAYER_TEST_H
 
 #include <cppunit/TestCase.h>
 
 class PlayerTest : public CppUnit::TestCase
 {
-	CPPUNIT_TEST_SUITE( PlayerTest );
-	CPPUNIT_TEST( testConstructor );
-	CPPUNIT_TEST( testStrength );
-	CPPUNIT_TEST( testHealth );
-	CPPUNIT_TEST_SUITE_END();
+public:
+	static CppUnit::Test *suite();
+	void setUp();
+	void tearDown();
 
 	void testConstructor();
 	void testStrength();
 	void testHealth();
-
-public:
-	void setUp();
-	void tearDown();
 };
 
-#endif // TEST_PLAYER_H
+#endif // PLAYER_TEST_H
+

@@ -1,4 +1,4 @@
-// testplayer.cpp
+// playertest.cpp
 #include <cstring>
 #include <stdexcept>
 
@@ -7,7 +7,19 @@
 #include "player.h"
 #include "playertest.h"
 
-CPPUNIT_TEST_SUITE_NAMED_REGISTRATION( PlayerTest, "PlayerTest" );
+CppUnit::Test *PlayerTest::suite()
+{
+	CppUnit::TestSuite *testSuite = new CppUnit::TestSuite( "PlayerTest" );
+
+	testSuite->addTest( new CppUnit::TestCaller<PlayerTest>(
+			"testConstructor", &PlayerTest::testConstructor ) );
+	testSuite->addTest( new CppUnit::TestCaller<PlayerTest>(
+			"testStrength", &PlayerTest::testStrength ) );
+	testSuite->addTest( new CppUnit::TestCaller<PlayerTest>(
+			"testHealth", &PlayerTest::testHealth ) );
+
+	return testSuite;
+}
 
 void PlayerTest::setUp()
 {
@@ -17,7 +29,7 @@ void PlayerTest::tearDown()
 {
 }
 
-#define NAME "Name of Test Subject"
+#define NAME "Alice Barbaros"
 
 void PlayerTest::testConstructor()
 {

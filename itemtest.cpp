@@ -8,27 +8,19 @@
 #include "item.h"
 #include "itemtest.h"
 
-#if USE_HELPER_MACRO
-
-CPPUNIT_TEST_SUITE_NAMED_REGISTRATION( ItemTest, "ItemTest" );
-
-#else
-
-CppUnit::Test *suite()
+CppUnit::Test *ItemTest::suite()
 {
 	CppUnit::TestSuite *testSuite = new CppUnit::TestSuite( "ItemTest" );
 
 	testSuite->addTest( new CppUnit::TestCaller<ItemTest>(
-			"testConstructor", &ItemTest::testConstructor );
+			"testConstructor", &ItemTest::testConstructor ) );
 	testSuite->addTest( new CppUnit::TestCaller<ItemTest>(
-			"testType", &ItemTest::testType );
+			"testType", &ItemTest::testType ) );
 	testSuite->addTest( new CppUnit::TestCaller<ItemTest>(
-			"testValue", &ItemTest::testValue );
+			"testValue", &ItemTest::testValue ) );
 
 	return testSuite;
 }
-
-#endif // USE_HELPER_MACRO
 
 void ItemTest::setUp()
 {
