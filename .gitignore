@@ -25,6 +25,9 @@
 *.swp
 *~
 
+# Dependencies
+*.d
+
 # Executables
 *.exe
 *.out
