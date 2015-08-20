@@ -1,6 +1,34 @@
+*.slo
+*.lo
 *.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Editor working files, backups
 *.swp
 *~
+
+# Executables
+*.exe
+*.out
+*.app
 test
 game
 
