@@ -2,7 +2,7 @@ CC = g++
 CXXFLAGS = -Wall --std=c++11
 
 SOURCES =
-SOURCES += main.cpp
+SOURCES += gamemain.cpp
 SOURCES += item.cpp
 SOURCES += player.cpp
 
@@ -22,10 +22,13 @@ TESTLIB = -lcppunit
 
 TEST = test
 
-$(EXEC): $(SOURCES)
+include $(EXEC).d
+include $(TEST).d
+
+$(EXEC): $(SOURCES) $(EXEC).d
 	$(CC) $(CXXFLAGS) -o $(EXEC) $(SOURCES)
 
-$(TEST): $(TESTSRC)
+$(TEST): $(TESTSRC) $(TEST).d
 	$(CC) $(CXXFLAGS) -o $(TEST) $(TESTSRC) $(TESTLIB)
 
 run: $(TEST)
@@ -34,13 +37,18 @@ run: $(TEST)
 .PHONY: clean
 clean:
 	@rm -f *.o *.d
-	@rm -f $(EXEC).d
 	@rm -f $(EXEC)
-	@rm -f $(TEST).d
 	@rm -f $(TEST)
 
 .PHONY: depend
 depend:
-	$(CC) -E $(SOURCES) -o $(EXEC).d
-	$(CC) -E $(SOURCES) $(TESTSRC) -o $(TEST).d
+	$(CC) -MM -E $(SOURCES) -o $(EXEC).d
+	$(CC) -MM -E $(TESTSRC) -o $(TEST).d
+
+$(EXEC).d : $(SOURCES)
+	$(CC) -MM -E $@ -o $<
+
+$(TEST).d : $(TESTSRC)
+	$(CC) -MM -E $@ -o $<
+
 

@@ -1,3 +1,7 @@
+//
+// The ''game'' is a simple print test program that uses the test classes
+// and prints out their state.
+//
 #include <iostream>
 
 #include "item.h"
