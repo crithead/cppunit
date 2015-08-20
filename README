@@ -1,14 +1,13 @@
-<<<<<<< HEAD
-This is a CppUnit example project derived from the following
-
-http://c2.com/cgi/wiki?DirtSimpleCppUnitExample
-
-=======
 README for github.com/crithead/cppunit/
 =======================================
 
 This is an example projects showing how to use CppUnit to build unit tests
 for a small project.
+
+It was derived from the following example:
+
+http://c2.com/cgi/wiki?DirtSimpleCppUnitExample
+
 
 Building
 ---------
@@ -23,7 +22,7 @@ Building
 
 .............................................................................
 $ make
-# make test
+$ make test
+$ ./test
 .............................................................................
->>>>>>> b780c4cac27295bfc024356e8bd55aef32d2e18b
 

@@ -22,55 +22,43 @@ CppUnit::Test *ItemTest::suite()
 	return testSuite;
 }
 
+#define NAME "The Two Ring"
+#define TYPE Item::Ring
+
 void ItemTest::setUp()
 {
+	item = new Item( NAME, TYPE );
 }
 
 void ItemTest::tearDown()
 {
+	delete item;
 }
-
-#define NAME "The Two Ring"
-#define TYPE Item::Ring
 
 void ItemTest::testConstructor()
 {
-	Item item( NAME, TYPE  );
-	CPPUNIT_ASSERT( strcmp( item.Name().c_str(), NAME ) == 0 );
-	CPPUNIT_ASSERT( item.Type() == TYPE );
-	CPPUNIT_ASSERT( item.Uid() == 0 );
-	CPPUNIT_ASSERT( item.Value() == 0 );
+	CPPUNIT_ASSERT( item != 0 );
+	CPPUNIT_ASSERT( strcmp( item->Name().c_str(), NAME ) == 0 );
+	CPPUNIT_ASSERT( item->Type() == TYPE );
+	CPPUNIT_ASSERT( item->Uid() == 0 );
+	CPPUNIT_ASSERT( item->Value() == 0 );
 }
 
 void ItemTest::testValue()
 {
-	Item item( NAME, TYPE );
-	CPPUNIT_ASSERT( item.Value() == 0 );
-	item.SetValue( 10 );
-	CPPUNIT_ASSERT( item.Value() == 10 );
-	item.SetValue( 99 );
-	CPPUNIT_ASSERT( item.Value() == 99 );
+	CPPUNIT_ASSERT( item != 0 );
+	CPPUNIT_ASSERT( item->Value() == 0 );
+	item->SetValue( 10 );
+	CPPUNIT_ASSERT( item->Value() == 10 );
+	item->SetValue( 99 );
+	CPPUNIT_ASSERT( item->Value() == 99 );
 
-	CPPUNIT_ASSERT_THROW( item.SetValue( -10 ), std::invalid_argument );
+	CPPUNIT_ASSERT_THROW( item->SetValue( -10 ), std::invalid_argument );
 }
 
 void ItemTest::testType()
 {
-	Item item( NAME, TYPE );
-	CPPUNIT_ASSERT( item.Type() == TYPE );
+	CPPUNIT_ASSERT( item != 0 );
+	CPPUNIT_ASSERT( item->Type() == TYPE );
 }
-
-#if 0
-	CPPUNIT_ASSERT( condition );
-	CPPUNIT_ASSERT_MESSAGE( message, condition );
-	CPPUNIT_FAIL( message );
-	CPPUNIT_ASSERT_EQUAL( expected, actual );
-	CPPUNIT_ASSERT_EQUAL_MESSAGE( message, expected, actual );
-	CPPUNIT_ASSERT_DOUBLES_EQUAL( expected, actual, delta );
-
-	CPPUNIT_ASSERT_THROW( expression, exception-type );
-	CPPUNIT_ASSERT_THROW_MESSAGE( message, expression, exception-type );
-	CPPUNIT_ASSERT_NO_THROW( expression );
-	CPPUNIT_ASSERT_NO_THROW_MESSAGE( message, expression );
-#endif
 

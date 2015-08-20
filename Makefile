@@ -23,35 +23,22 @@ TESTLIB = -lcppunit
 
 TEST = test
 
--include $(DEPENDS)
--include $(TESTDEP)
+all: $(EXEC) $(TEST)
 
-$(EXEC): $(SOURCES) $(DEPENDS)
-	$(CC) $(CXXFLAGS) -o $(EXEC) $(SOURCES)
+$(EXEC): $(OBJECTS) $(DEPENDS)
+	$(CC) $(CXXFLAGS) -o $(EXEC) $(OBJECTS)
 
-$(TEST): $(TESTSRC) $(TESTDEP)
-	$(CC) $(CXXFLAGS) -o $(TEST) $(TESTSRC) $(TESTLIB)
+$(TEST): $(TESTOBJ) $(TESTDEP)
+	$(CC) $(CXXFLAGS) -o $(TEST) $(TESTOBJ) $(TESTLIB)
 
 run: $(TEST)
 	./$(TEST)
 
-.PHONY: depends
-depends:
-	@rm -f $(EXEC).d
-	$(CC) -MM -E $(SOURCES) > $(EXEC).d
-	@rm -f $(TEST).d
-	$(CC) -MM -E $(TESTSRC) > $(TEST).d
-
-#$(EXEC).d : $(SOURCES)
-#	@rm -f $(EXEC).d
-#	$(CC) -MM -E $(SOURCES) > $@
-
-#$(TEST).d : $(TESTSRC)
-#	@rm -f $(TEST).d
-#	$(CC) -MM -E $(TESTSRC) > $@
-
 %.d : %.cpp
 	$(CC) -MM -E $< -o $@
+
+-include $(DEPENDS)
+-include $(TESTDEP)
 
 .PHONY: print
 print:

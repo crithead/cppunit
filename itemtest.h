@@ -3,6 +3,8 @@
 
 #include <cppunit/TestCase.h>
 
+class Item;
+
 class ItemTest : public CppUnit::TestCase
 {
 public:
@@ -14,6 +16,8 @@ public:
 	void testConstructor();
 	void testType();
 	void testValue();
+private:
+	Item *item;
 };
 
 #endif // TEST_ITEM_H
