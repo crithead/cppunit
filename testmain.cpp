@@ -29,11 +29,9 @@ int main( int argc, char* argv[] )
 	}
 
 	// Run the test.
-	bool wasSucessful = runner.run( "" );
+	bool success runner.run( "" );
 
 	// Return error code 1 if any tests failed.
-	return wasSucessful ? 0 : 1;
+	return success ? 0 : 1;
 }
-
-#endif
 
