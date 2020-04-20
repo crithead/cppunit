@@ -1,28 +1,24 @@
-README for github.com/crithead/cppunit/
-=======================================
+# README for github.com/crithead/cppunit/
 
-This is an example projects showing how to use CppUnit to build unit tests
+This is a simple example project showing how to use CppUnit to build unit tests
 for a small project.
 
 It was derived from the following example:
 
 http://c2.com/cgi/wiki?DirtSimpleCppUnitExample
 
-
-Building
----------
+## Building the Project and Running the Tests
 
 1.  Install CppUnit libraries
 
-.............................................................................
-# aptitude install libcppunit-dev libcppunit-doc
-.............................................................................
+```
+# apt-get install libcppunit-dev libcppunit-doc
+```
 
-2.  Compile
+2.  Compile and Run
 
-.............................................................................
+```
 $ make
 $ make test
-$ ./test
-.............................................................................
+```
 
