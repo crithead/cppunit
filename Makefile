@@ -21,9 +21,9 @@ TESTDEP := $(TESTSRC:.cpp=.d)
 
 TESTLIB = -lcppunit
 
-TEST = test
+TEST = tester
 
-all: $(EXEC) $(TEST)
+all: $(EXEC)
 
 $(EXEC): $(OBJECTS) $(DEPENDS)
 	$(CC) $(CXXFLAGS) -o $(EXEC) $(OBJECTS)
@@ -31,7 +31,8 @@ $(EXEC): $(OBJECTS) $(DEPENDS)
 $(TEST): $(TESTOBJ) $(TESTDEP)
 	$(CC) $(CXXFLAGS) -o $(TEST) $(TESTOBJ) $(TESTLIB)
 
-run: $(TEST)
+.PHONY: test
+test: $(TEST)
 	./$(TEST)
 
 %.d : %.cpp
