@@ -37,7 +37,7 @@ void ItemTest::tearDown()
 
 void ItemTest::testConstructor()
 {
-	CPPUNIT_ASSERT( item != 0 );
+	CPPUNIT_ASSERT( item != nullptr );
 	CPPUNIT_ASSERT( strcmp( item->Name().c_str(), NAME ) == 0 );
 	CPPUNIT_ASSERT( item->Type() == TYPE );
 	CPPUNIT_ASSERT( item->Uid() == 0 );
@@ -46,7 +46,7 @@ void ItemTest::testConstructor()
 
 void ItemTest::testValue()
 {
-	CPPUNIT_ASSERT( item != 0 );
+	CPPUNIT_ASSERT( item != nullptr );
 	CPPUNIT_ASSERT( item->Value() == 0 );
 	item->SetValue( 10 );
 	CPPUNIT_ASSERT( item->Value() == 10 );
@@ -58,7 +58,7 @@ void ItemTest::testValue()
 
 void ItemTest::testType()
 {
-	CPPUNIT_ASSERT( item != 0 );
+	CPPUNIT_ASSERT( item != nullptr );
 	CPPUNIT_ASSERT( item->Type() == TYPE );
 }
 
