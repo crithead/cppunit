@@ -20,7 +20,7 @@ static void Print( Player& player )
 		<< "]" << std::endl;
 }
 
-int main( int argc, char **argv )
+int main( int, char ** )
 {
 	Player p( "Hobart" );
 	Print( p );
