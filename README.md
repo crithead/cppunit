@@ -12,16 +12,16 @@ It was derived from the following example:
 1.  Install CppUnit libraries
 
 ```sh
-# apt-get install libcppunit-dev libcppunit-doc
+sudo apt-get install libcppunit-dev libcppunit-doc
 ```
 
 2.  Compile and Run
 
 ```sh
-$ mkdir build && cd build
-$ cmake ..
-$ make
-$ ./game
-$ ./test
+mkdir build && cd build
+cmake ..
+make
+./game
+./test
 ```
 
